@@ -2,27 +2,27 @@ package org.example.lv1;
 
 import java.util.*;
 
-public class Calculator {
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("============ 계산기 ============");
+        System.out.println("============ 계산기 Lv1 ============");
         System.out.println("Made By. 내일배움캠프 Spring 8기 이영래");
-        System.out.println("===============================\n");
+        System.out.println("===================================\n");
         while (true) {
             /** 2개의 숫자(양의 정수) 입력 받기 **/
             System.out.print("첫 번째 숫자를 입력하세요: ");
-            int a = sc.nextInt();
+            int num1 = sc.nextInt();
             // 양의 정수인지 확인
-            if (a < 0) {
+            if (num1 < 0) {
                 System.out.println("양의 정수(0 포함)을 입력해주세요!\n");
                 continue;
             }
             System.out.print("두 번째 숫자를 입력하세요: ");
 
-            int b = sc.nextInt();
+            int num2 = sc.nextInt();
             // 양의 정수인지 확인
-            if (b < 0) {
+            if (num2 < 0) {
                 System.out.println("양의 정수(0 포함)을 입력해주세요!\n");
                 continue;
             }
@@ -36,20 +36,20 @@ public class Calculator {
             // switch 제어문을 통해 연산 종류 식별
             switch (operation) {
                 case "+": // 더하기 연산
-                    result = a + b;
+                    result = num1 + num2;
                     break;
                 case "-": // 빼기 연산
-                    result = a - b;
+                    result = num1 - num2;
                     break;
                 case "*": // 곱셈 연산
-                    result = a * b;
+                    result = num1 * num2;
                     break;
                 case "/": // 나눗셈 연산
-                    if (b == 0) {
+                    if (num2 == 0) {
                         System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.\n");
                         continue;
                     }
-                    result = a / b;
+                    result = num1 / num2;
                     break;
                 default:
                     System.out.println("잘못된 연산자입니다!!\n");
