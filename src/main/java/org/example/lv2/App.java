@@ -69,9 +69,10 @@ public class App {
                 System.out.println();
             } catch (ArithmeticException e) { // 잘못된 인수 예외 처리 (나눗셈 연산에서 분모가 0이 되는 경우)
                 System.out.println(e.getMessage());
-            } catch (InputMismatchException e) {
-                System.out.println("숫자만 입력해주세요 !! ");
-            } catch (IllegalArgumentException e) {
+            } catch (InputMismatchException e) { // 두 숫자 입력 시 숫자가 아닐 경우 예외 처리
+                System.out.println("숫자만 입력해주세요 !!\n");
+                sc.next(); // 스캐너 버퍼가 안비워져있어 무한 루프가 발생하므로 남아있는 입력 제거!
+            } catch (IllegalArgumentException e) { // 사칙연산 중 잘못된 연산자 입력 시 예외 처리
                 System.out.println(e.getMessage());
             }
             /* 반복문 종료 */
