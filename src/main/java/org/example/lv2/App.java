@@ -39,21 +39,26 @@ public class App {
 
             // 계산기 클래스의 calculate 메소드 호출하여 결과값 반환
             int result = calculator.calculate(num1, num2, operation);
+
             System.out.println("결과 : " + result);
 
             // Getter 활용하여 조회
             ArrayList<Integer> storedList = calculator.getList();
             System.out.println("계산기 누적 결과 : " + storedList);
 
-            /** 먼저 저장된 데이터 삭제 기능 **/
-            System.out.println("누적 결과 중 가장 오래된 데이터를 삭제하시겠습니까? (삭제 시 remove 입력) : ");
+            /** 먼저 저장된 데이터 삭제 기능 (Setter 도 활용) **/
+            System.out.println("누적 결과 중 가장 오래된 데이터를 삭제하시겠습니까? (삭제 시 remove 입력, 초기화 시 clear 입력, 삭제 불필요 시 아무키 입력) : ");
             String remove = sc.next();
             if (remove.equals("remove")) {
                 calculator.removeResult();
+            } else if (remove.equals("clear")) {
+                calculator.setList(new ArrayList<>());
+                System.out.println("누적 결과가 초기화되었습니다.");
             }
 
             storedList = calculator.getList();
             System.out.println("계산기 누적 결과 : " + storedList);
+
 
             System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) :: ");
             String end = sc.next();

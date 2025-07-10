@@ -29,7 +29,7 @@ public class Calculator {
             case '/': // 나눗셈 연산
                 if (num2 == 0) {
                     System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.\n");
-                    break;
+                    return -1;
                 }
                 result = num1 / num2;
                 break;
@@ -48,7 +48,7 @@ public class Calculator {
     }
 
     // Setter 메서드
-    public void SetList(ArrayList<Integer> newList) {
+    public void setList(ArrayList<Integer> newList) {
         this.list = newList;
     }
 
