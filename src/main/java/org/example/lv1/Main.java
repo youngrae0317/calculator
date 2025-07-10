@@ -9,6 +9,7 @@ public class Main {
         System.out.println("============ 계산기 Lv1 ============");
         System.out.println("Made By. 내일배움캠프 Spring 8기 이영래");
         System.out.println("===================================\n");
+
         while (true) {
             /** 2개의 숫자(양의 정수) 입력 받기 **/
             System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -18,8 +19,8 @@ public class Main {
                 System.out.println("양의 정수(0 포함)을 입력해주세요!\n");
                 continue;
             }
-            System.out.print("두 번째 숫자를 입력하세요: ");
 
+            System.out.print("두 번째 숫자를 입력하세요: ");
             int num2 = sc.nextInt();
             // 양의 정수인지 확인
             if (num2 < 0) {
@@ -29,22 +30,22 @@ public class Main {
 
             System.out.print("사칙연산 기호를 입력하세요: ");
             // 사칙연산 기호를 적합한 타입으로 선언한 변수에 저장합니다.
-            String operation = sc.next();
+            char operation = sc.next().charAt(0);
 
             int result = 0; // 연산 결과 변수
 
             // switch 제어문을 통해 연산 종류 식별
             switch (operation) {
-                case "+": // 더하기 연산
+                case '+': // 더하기 연산
                     result = num1 + num2;
                     break;
-                case "-": // 빼기 연산
+                case '-': // 빼기 연산
                     result = num1 - num2;
                     break;
-                case "*": // 곱셈 연산
+                case '*': // 곱셈 연산
                     result = num1 * num2;
                     break;
-                case "/": // 나눗셈 연산
+                case '/': // 나눗셈 연산
                     if (num2 == 0) {
                         System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.\n");
                         continue;
