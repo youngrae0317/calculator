@@ -33,8 +33,7 @@ public class Calculator {
                 result = num1 / num2;
                 break;
             default:
-                System.out.println("잘못된 연산자입니다!!\n");
-                break;
+                throw new IllegalArgumentException("잘못된 연산자입니다. +, -, *, / 중 하나를 입력하세요.");
         }
 
         this.list.add(result);
