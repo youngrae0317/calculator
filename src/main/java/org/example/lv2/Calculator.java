@@ -28,8 +28,7 @@ public class Calculator {
                 break;
             case '/': // 나눗셈 연산
                 if (num2 == 0) {
-                    System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.\n");
-                    return -1;
+                    throw new ArithmeticException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.\n");
                 }
                 result = num1 / num2;
                 break;
