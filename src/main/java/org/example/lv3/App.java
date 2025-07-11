@@ -10,7 +10,7 @@ public class App {
         System.out.println("===================================\n");
 
         /* Calculator 인스턴스 생성 */
-        ArithmeticCalculator calculator = new ArithmeticCalculator();
+        ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();
 
         Scanner sc = new Scanner(System.in);
 
@@ -18,36 +18,24 @@ public class App {
         while (true) {
             try {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                int num1 = sc.nextInt();
-
-                // 양의 정수인지 확인
-                if (num1 < 0) {
-                    System.out.println("양의 정수(0 포함)을 입력해주세요!\n");
-                    continue;
-                }
+                double num1 = sc.nextDouble();
 
                 System.out.print("두 번째 숫자를 입력하세요: ");
-                int num2 = sc.nextInt();
-
-                // 양의 정수인지 확인
-                if (num2 < 0) {
-                    System.out.println("양의 정수(0 포함)을 입력해주세요!\n");
-                    continue;
-                }
+                double num2 = sc.nextDouble();
 
                 System.out.print("사칙연산 기호를 입력하세요: ");
 
                 // 사용자에게 char 기호를 받고, OperatorType 열거형을 이용하여 OperatorType으로 변환
                 char operatorType = sc.next().charAt(0);
-                OperatorType operator = OperatorType.valueOf(operatorType);
+                OperatorType operator = OperatorType.of(operatorType);
 
                 // 계산기 클래스의 calculate 메소드에 OperatorType 전달
-                int result = calculator.calculate(num1, num2, operator);
+                double result = calculator.calculate(num1, num2, operator);
 
                 System.out.println("결과 : " + result);
 
                 // Getter 활용하여 조회
-                ArrayList<Integer> storedList = calculator.getList();
+                ArrayList<Double> storedList = calculator.getList();
                 System.out.println("계산기 누적 결과 : " + storedList);
 
                 /** 먼저 저장된 데이터 삭제 기능 (Setter 도 활용) **/

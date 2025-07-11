@@ -11,7 +11,7 @@ public enum OperatorType {
     }
 
     // 입력된 oper와 일치하는 enum 상수 찾아서 반환
-    public static OperatorType valueOf(char oper) {
+    public static OperatorType of(char oper) {
         for (OperatorType type : OperatorType.values()) {
             if (type.operation == oper) {
                 return type;
