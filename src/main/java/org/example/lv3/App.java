@@ -3,6 +3,26 @@ package org.example.lv3;
 import java.util.*;
 
 public class App {
+    private static void selectCommands(Scanner sc, ArithmeticCalculator<Double> calculator) {
+        System.out.println("저장된 결과 중 특정 값보다 큰 값을 보시려면 'up', 가장 오래된 데이터를 삭제하려면 'remove', 전체 삭제는 'clear'를 입력하세요 (이 외는 아무키 입력): ");
+        String command = sc.next();
+
+        if (command.equals("up")) {
+            System.out.print("조회할 기준 값을 입력하세요: ");
+            double criteria = sc.nextDouble();
+            System.out.print(criteria + "보다 큰 결과들: ");
+            calculator.comparison(criteria);
+        } else if (command.equals("remove")) {
+            calculator.removeResult();
+            System.out.println("가장 오래된 결과 1개가 삭제되었습니다.");
+        } else if (command.equals("clear")) {
+            calculator.setList(new ArrayList<>());
+            System.out.println("모든 결과가 초기화되었습니다.");
+        }
+
+        System.out.println("계산기 누적 결과 : " + calculator.getList());
+    }
+
     public static void main(String[] args) {
 
         System.out.println("============ 계산기 Lv3 ============");
@@ -38,18 +58,8 @@ public class App {
                 ArrayList<Double> storedList = calculator.getList();
                 System.out.println("계산기 누적 결과 : " + storedList);
 
-                /** 먼저 저장된 데이터 삭제 기능 (Setter 도 활용) **/
-                System.out.println("누적 결과 중 가장 오래된 데이터를 삭제하시겠습니까? (삭제 시 remove 입력, 초기화 시 clear 입력, 삭제 불필요 시 아무키 입력) : ");
-                String remove = sc.next();
-                if (remove.equals("remove")) {
-                    calculator.removeResult();
-                } else if (remove.equals("clear")) {
-                    calculator.setList(new ArrayList<>());
-                    System.out.println("누적 결과가 초기화되었습니다.");
-                }
 
-                storedList = calculator.getList();
-                System.out.println("계산기 누적 결과 : " + storedList);
+                selectCommands(sc, calculator);
 
 
                 System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) :: ");

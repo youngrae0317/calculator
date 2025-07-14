@@ -1,6 +1,8 @@
 package org.example.lv3;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class ArithmeticCalculator<T extends Number> {
@@ -58,5 +60,13 @@ public class ArithmeticCalculator<T extends Number> {
         } else {
             System.out.println("삭제할 결과가 없습니다!");
         }
+    }
+
+    public void comparison(double num) {
+        List<Double> filterList = this.list.stream()
+                .filter(n -> n > num)
+                .collect(Collectors.toList());
+
+        System.out.println(filterList);
     }
 }
